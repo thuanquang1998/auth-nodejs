@@ -1,0 +1,22 @@
+
+# POST http://localhost:3000/user/register 
+# Content-Type: application/json
+
+# {
+#     "email": "thuanquang3@gmail.com",
+#     "password": "123456"
+# }
+
+
+# POST http://localhost:3000/user/login
+# Content-Type: application/json
+
+# {
+#     "email": "thuanquang3@gmail.com",
+#     "password": "123456"
+# }
+
+
+GET http://localhost:3000/user/list-user
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ2YjgyYjQ5MDVhNmZiZDViZWE4YjQiLCJpYXQiOjE2NDg4MDU3MTksImV4cCI6MTY0ODgwOTMxOX0.amT7C5qpfU4cxmWfzQQBnUaI8R83x5788btLJOWI_rA
+
