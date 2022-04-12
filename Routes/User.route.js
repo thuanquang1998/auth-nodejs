@@ -1,107 +1,18 @@
 const express = require("express");
 const route = express.Router();
-const createError = require("http-errors");
+const { verifyAccessToken } = require("../helpers/jwt_service");
+const UserController = require("../Controllers/User.controller");
 
-const User = require("../Models/User.model");
-const { userValidate } = require("../helpers/validation");
-const {
-  signAccessToken,
-  verifyAccessToken,
-} = require("../helpers/jwt_service");
+route.post("/register", UserController.register);
 
-route.post("/register", async (req, res, next) => {
-  try {
-    const { email, password } = req.body;
-    // if (!email || !password) {
-    //   throw createError.BadRequest();
-    // }
-    const { error } = await userValidate(req.body);
+route.post("/refresh-token", UserController.refreshToken);
 
-    if (error) {
-      throw createError(error.details[0].message);
-    }
+route.post("/login", UserController.login);
 
-    const isExists = await User.findOne({
-      username: email,
-    });
+route.delete("/logout", UserController.logout);
 
-    if (isExists) {
-      throw createError.Conflict(`${email} is ready been register`);
-    }
+route.get("/list-user", verifyAccessToken, UserController.listUser);
 
-    // const isCreate = await User.create({
-    //   username: email,
-    //   password: password,
-    // });
-
-    const user = new User({ username: email, password });
-
-    const savedUser = await user.save();
-
-    return res.json({
-      status: "okay",
-      elements: savedUser,
-    });
-  } catch (error) {
-    next(error);
-  }
-});
-
-route.post("/refresh-token", (req, res, next) => {
-  res.send("function refresh-token");
-});
-
-route.post("/login", async (req, res, next) => {
-  try {
-    const { email, password } = req.body;
-    const { error } = await userValidate(req.body);
-
-    if (error) {
-      throw createError(error.details[0].message);
-    }
-
-    const user = await User.findOne({ email });
-    if (!user) {
-      throw createError.NotFound("User not registered");
-    }
-
-    const isValid = await user.isCheckedPassword(password);
-
-    if (!isValid) {
-      throw createError.Unauthorized();
-    }
-
-    const accessToken = await signAccessToken(user._id);
-
-    res.json({
-      accessToken,
-    });
-
-    // res.send(user);
-  } catch (error) {
-    next(error);
-  }
-});
-
-route.post("/logout", (req, res, next) => {
-  res.send("function logout");
-});
-
-route.get("/list-user", verifyAccessToken, async (req, res, next) => {
-  console.log("00000000  ", req.headers);
-  try {
-    const listUser = [
-      {
-        id: 1,
-        name: "Name1",
-      },
-      {
-        id: 2,
-        name: "Name2",
-      },
-    ];
-    res.json({ listUser });
-  } catch (error) {}
-});
+route.get("/insta-info", UserController.instaInfo);
 
 module.exports = route;

@@ -1,22 +1,33 @@
 
-# POST http://localhost:3000/user/register 
-# Content-Type: application/json
+POST http://localhost:3000/user/register 
+Content-Type: application/json
 
-# {
-#     "email": "thuanquang3@gmail.com",
-#     "password": "123456"
-# }
+{
+    "email": "thuanquang3@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3000/user/refresh-token
+Content-Type: application/json
+
+{
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ2YjgyYjQ5MDVhNmZiZDViZWE4YjQiLCJpYXQiOjE2NDkwNjg2MjAsImV4cCI6MTY4MDYyNjIyMH0.BOIeKvw6JLhxb5POLUrxwK4SsivGOnquyOwSy7BFLR0"
+}
+
+###
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "thuanquang3@gmail.com",
+    "password": "123456"
+}
 
 
-# POST http://localhost:3000/user/login
-# Content-Type: application/json
-
-# {
-#     "email": "thuanquang3@gmail.com",
-#     "password": "123456"
-# }
-
-
+###
 GET http://localhost:3000/user/list-user
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ2YjgyYjQ5MDVhNmZiZDViZWE4YjQiLCJpYXQiOjE2NDg4MDU3MTksImV4cCI6MTY0ODgwOTMxOX0.amT7C5qpfU4cxmWfzQQBnUaI8R83x5788btLJOWI_rA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MjQ2YjgyYjQ5MDVhNmZiZDViZWE4YjQiLCJpYXQiOjE2NDkwNjg1NTAsImV4cCI6MTY0OTA2ODYxMH0.EtXgDCuKJtidjDYArMsxjwi4oJ3msgXEPNhNGk4Ipj0
 
+### 
+GET http://localhost:3000/api/login
