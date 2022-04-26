@@ -1,5 +1,7 @@
-const mongoose = require("mongoose");
-require("dotenv").config();
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
 const newConnection = (uri) => {
   const conn = mongoose.createConnection(uri, {
     useNewUrlParser: true,
@@ -25,7 +27,4 @@ const newConnection = (uri) => {
 const testConnection = newConnection(process.env.URI_MONGODB_TEST);
 const userConnection = newConnection(process.env.URI_MONGODB_USER);
 
-module.exports = {
-  testConnection,
-  userConnection,
-};
+export { testConnection, userConnection };

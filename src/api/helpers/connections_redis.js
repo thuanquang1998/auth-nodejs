@@ -1,4 +1,5 @@
-const redis = require("redis");
+import redis from "redis";
+
 const client = redis.createClient({
   port: 6379,
   host: "127.0.0.1",
@@ -20,4 +21,4 @@ client.on("ready", function () {
   console.log("Redis to ready");
 });
 
-module.exports = client;
+export default client;

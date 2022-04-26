@@ -1,6 +1,6 @@
-const JWT = require("jsonwebtoken");
-const createError = require("http-errors");
-const client = require("../helpers/connections_redis");
+import JWT from "jsonwebtoken";
+import createError from "http-errors";
+import client from "../helpers/connections_redis.js";
 
 const signAccessToken = async (userId) => {
   return new Promise((resolve, reject) => {
@@ -25,7 +25,6 @@ const verifyAccessToken = async (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const bearerToken = authHeader.split(" ");
   const token = bearerToken[1];
-  console.log("token verifyAccessToken:>> ", token);
 
   //start verify token
   JWT.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, payload) => {
@@ -91,7 +90,7 @@ const verifyRefreshToken = (refreshToken) => {
   });
 };
 
-module.exports = {
+export {
   signAccessToken,
   verifyAccessToken,
   signRefreshToken,

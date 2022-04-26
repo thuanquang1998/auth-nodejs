@@ -1,6 +1,6 @@
-const Joi = require("joi");
+import Joi from "joi";
 
-const userValidate = (data) => {
+export const userValidate = (data) => {
   const userSchema = Joi.object({
     email: Joi.string()
       .pattern(new RegExp("gmail.com$"))
@@ -11,8 +11,4 @@ const userValidate = (data) => {
   });
 
   return userSchema.validate(data);
-};
-
-module.exports = {
-  userValidate,
 };

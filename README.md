@@ -50,7 +50,12 @@ https://www.youtube.com/watch?v=baiyWCJUhWM&list=PLw0w5s5b9NK5m3558bDRdZoBVoV08Z
 # access token het
 
     accessToken het han => dang nhap lai => bad. => 2 cach giai quyet
-    C1: su dung axios interceptors, check request truoc khi gui => nhuoc diem: ton them 1 lan goi api
-    C2: check token tu server
+    C1: su dung axios interceptors, check request truoc khi gui => nhuoc diem: ton them 1 lan goi api.
+        => tra ve accessToken, timeExpired => truoc khi gui request, check timeExpired => refreshToken() => return new AccessToken, timeExpired
+        - Uu diem: tiet kiem request gui xuong server.
+        - Nhuoc diem: moi may co thoi gian local khac nhau, => chinh thoi gian may de hack.
+    C2: check token tu server.
+    Co 3 cach luu tru accessToken o client. (localStorage, session, cookies)
+
 
      // "type": "module",

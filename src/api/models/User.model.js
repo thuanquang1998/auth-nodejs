@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import bcrypt from "bcrypt";
+import { testConnection } from "../helpers/connections_multi_mongodb.js";
+
 const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
-const { testConnection } = require("../helpers/connections_multi_mongodb");
 
 const UserSchema = new Schema({
   username: {
@@ -35,4 +36,4 @@ UserSchema.methods.isCheckedPassword = async function (password) {
   } catch (error) {}
 };
 
-module.exports = testConnection.model("user", UserSchema);
+export const UserModel = testConnection.model("user", UserSchema);

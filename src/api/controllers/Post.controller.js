@@ -1,4 +1,4 @@
-import { PostModel } from "../Models/Post.model.js";
+import { PostModel } from "../models/Post.model.js";
 import { ObjectId } from "mongodb";
 export const getPosts = async (req, res, next) => {
   try {
@@ -15,14 +15,11 @@ export const getPosts = async (req, res, next) => {
 export const getPostDetail = async (req, res, next) => {
   try {
     var _id = new ObjectId(req.params.id);
-    console.log("_id 111:>> ", _id);
     const posts = await PostModel.findById(_id);
-    console.log("posts :>> ", posts);
-    // setTimeout(() => {
-    //   res.status(200).json(posts);
-    // }, 300);
+    setTimeout(() => {
+      res.status(200).json(posts);
+    }, 300);
   } catch (error) {
-    console.log("hhhhhhhhh");
     res.status(500).json({ error });
   }
 };

@@ -3,6 +3,7 @@ const app = express();
 const createError = require("http-errors");
 const UserRoute = require("./Routes/User.route");
 // const { signAccessToken, signRefreshToken } = require("./helpers//init_jwt");
+const { signAccessToken, signRefreshToken } = require("./helpers/jwt_service");
 
 require("dotenv").config();
 require("./helpers/connections_mongodb");
@@ -24,15 +25,15 @@ app.get("/", (req, res) => {
 //   });
 // });
 
-// app.get("/api/refreshToken", (req, res) => {
-//   return res.status(200).json({
-//     status: "success",
-//     elements: {
-//       token: "newAccessToken",
-//       timeExpired: Date.now() + 60 * 1000,
-//     },
-//   });
-// });
+app.get("/api/refreshToken", async (req, res) => {
+  console.log("kkkkkkkkkkkkkkkkkkkkk");
+  return res.status(200).json({
+    status: "success",
+    elements: {
+      accessToken: await signAccessToken(),
+    },
+  });
+});
 
 // app.get("/api/users", (req, res) => {
 //   return res.status(200).json({

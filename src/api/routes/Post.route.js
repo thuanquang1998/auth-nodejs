@@ -4,7 +4,7 @@ import {
   getPostDetail,
   createPosts,
   updatePosts,
-} from "../Controllers/Post.controller.js";
+} from "../controllers/Post.controller.js";
 const route = express.Router();
 
 route.get("/", getPosts);
