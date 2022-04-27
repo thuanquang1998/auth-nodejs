@@ -59,3 +59,21 @@ https://www.youtube.com/watch?v=baiyWCJUhWM&list=PLw0w5s5b9NK5m3558bDRdZoBVoV08Z
 
 
      // "type": "module",
+
+### MODULE upload ###
+1.Technique
+- express
+- multer
+
+### MODULE nodemailer ### 
+1.Technique
+- express
+- nodemailer
+
+2.Variable
+```bash
+    const adminEmail = "thuanquang10@gmail.com";
+    const adminPassword = "antuongdong10";
+    const mailHost = "smtp.gmail.com";
+    const mailPort = 587;
+```

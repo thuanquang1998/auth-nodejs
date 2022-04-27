@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js upload files</title>
+    <!-- Get bootstrap from CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <br>
+                <h4>Node.js upload files</h4>
+                <div class=""></div>
+                <form action="/upload-file" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="example-input-file">&nbsp;</label>
+                        <input type="file" name="file" class="form-control-file border">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <br>
+                <h4>NodeJS send email example</h4>
+                <div class=""></div>
+                <div class="text-left">
+                    <form action="/mail/send-email" method="post">
+                      <div class="row">
+                        <div class="form-group col-md-8">
+                          <label for="toEmail">To:</label>
+                          <input type="email" class="form-control" name="toEmail" required>
+                        </div>
+                      </div>
+                
+                      <div class="row">
+                        <div class="form-group col-md-8">
+                          <label for="subject">Subject:</label>
+                          <input type="text" class="form-control" name="subject" required>
+                        </div>
+                      </div>
+                
+                      <div class="row">
+                          <div class="form-group col-md-8">
+                            <label for="body">Body:</label>
+                            <textarea id="classic-editor" cols="5" rows="5"class="form-control" name="body"></textarea>
+                          </div>
+                      </div>
+                      <div class="row">
+                        <div class="form-group col-md-8">
+                          <button type="submit" class="btn btn-success">Send</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
